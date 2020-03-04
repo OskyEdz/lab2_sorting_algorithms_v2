@@ -11,8 +11,8 @@ int arr[] = { 1,9,9,8,0,1,1,0 }; //Swedish personal number
 int n_size = sizeof(arr) / sizeof(arr[0]); //Size of the array
 int* array = arr;
 
-char sortingProblem[] = { "../sorting_problems/test-100000-2-problem" };
-char sortingSolution[] = { "../sorting_problems/test-100000-2-solution" };
+char sortingProblem[] = { "sorting_problems/test-100000-3-problem" };
+char sortingSolution[] = { "sorting_problems/test-100000-3-solution" };
 
 //################TASK1&TASK4 INSERT SORT######################################
 void test_InsertionSort() {
@@ -98,10 +98,10 @@ void test_MergeSort_loadf() {
 	clock_t start = clock();
 	int* sortedArray_loadf = MergeSort(problemArr, p, r);
 	clock_t end = clock();
-	time_spent = ((float)(end - start)) / CLOCKS_PER_SEC;
+	time_spent = ((float)(end - start)*1000) / CLOCKS_PER_SEC;
 
 	//Print sorted array
-	printf("Merge Sort took %f seconds to execute \n", time_spent);
+	printf("Merge Sort took %f milliseconds to execute \n", time_spent);
 	printf("Sorted array\n");
 	printArray(sortedArray_loadf, n);
 
