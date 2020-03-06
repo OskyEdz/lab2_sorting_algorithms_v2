@@ -1,0 +1,17 @@
+##Exercisis 2
+
+Files implementing the algorithms and datastructurs are:
+
+main.c - only executing functions in other Files 
+test.c and test.h - contains the functions ran from main.c connected with test.h
+
+mergesort.h and mergesort_func.c - same as insertion sort for merge sort.
+
+The testing includes a clock timer for claculation execution time for each sorting algorithm with given  array.
+We also give a visual reprensentation for comparing the arrays.
+
+You can test my function by updateting the varibels at the top of the test.c file.
+I've included comments about what does what. You need to provide 3 files genereated with my varaion of the python script.
+So that there is a backwards file (solution array in backwards ordering).
+
+

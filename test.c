@@ -7,13 +7,17 @@
 #include <stdio.h>
 
 //Global variables - only change these values
-int arr[] = { 1,9,9,8,0,1,1,0 }; //Swedish personal number
+int arr[] = { 1,9,9,8,0,1,1,0 }; //Swedish personal number or L1 {3, 1, 5, 10, 8, 7}, L2 {5, 2, 9, 6, 1, 2} from Lab1
 int n_size = sizeof(arr) / sizeof(arr[0]); //Size of the array
-int* array = arr;
+int* array = arr; //Don't touch...
 
-char sortingProblem[] = { "sorting_problems/problem-100000-1-problem" };
-char sortingSolution[] = { "sorting_problems/problem-100000-1-solution" };
-char sortingBackward[] = { "sorting_problems/problem-100000-1-backward" };
+//Files generated with my varation of the pythonscript, creates the backwards file with solution in reverse order.
+char sortingProblem[] = { "sorting_problems/problem-100000-3-problem" }; 
+char sortingSolution[] = { "sorting_problems/problem-100000-3-solution" };
+char sortingBackward[] = { "sorting_problems/problem-100000-3-backward" };
+
+//A limiter for print messages on debug screen
+int limit = 12; 
 
 //################TASK1&TASK4 INSERT SORT######################################
 void test_InsertionSort() {
@@ -61,7 +65,7 @@ void test_InsertionSort_loadf() {
 	//Print problem array from file 
 	printf("Task 5: Insertion Sort\n");
 	printf("Unsorted data #1\n");
-	printArray(problemArr, n);
+	printArray(problemArr, n, limit);
 
 	if (problemArr != NULL) {
 		//Calculate running time
@@ -75,7 +79,7 @@ void test_InsertionSort_loadf() {
 
 		//Print sorted array
 		printf("Sorted array #1\n");
-		printArray(sortedArray_loadf, n);
+		printArray(sortedArray_loadf, n, limit);
 	}
 
 	if (backwardArr != NULL) {
@@ -90,7 +94,7 @@ void test_InsertionSort_loadf() {
 		
 		//Print sorted array
 		printf("Sorted array #2\n");
-		printArray(sortedArray_loadf, n);
+		printArray(sortedArray_loadf, n, limit);
 	}
 
 	if (solutionArr != NULL) {
@@ -105,12 +109,12 @@ void test_InsertionSort_loadf() {
 
 		//Print sorted array
 		printf("Sorted array #3\n");
-		printArray(sortedArray_loadf, n);
+		printArray(sortedArray_loadf, n, limit);
 	}		
 
 	//Print correct solution from file
 	printf("The correct solution InsertionSort\n");
-	printArray(solutionArr, n);
+	printArray(solutionArr, n, limit);
 }
 
 //################TASK5 LOAD FILES - MERGE SORT#######################################
@@ -128,10 +132,11 @@ void test_MergeSort_loadf() {
 	//Print problem array from file
 	printf("Task 5: Merge Sort\n");
 	printf("Unsorted data #2\n");
-	printArray(problemArr, n);
+	printArray(problemArr, n, limit);
 
 	if (problemArr != NULL) {
 		//Calculate running time	
+		printf("Starting merge sort on unsorted data...\n");
 		double time_spent = 0.0; //Reset running time
 		clock_t start = clock();
 		int* sortedArray_loadf = MergeSort(problemArr, p, r);
@@ -142,14 +147,15 @@ void test_MergeSort_loadf() {
 
 		//Print sorted array
 		printf("Sorted array #1\n");
-		printArray(sortedArray_loadf, n);
+		printArray(sortedArray_loadf, n, limit);
 	}
 
 	if (backwardArr != NULL) {
 		//Calculate running time	
+		printf("Starting merge sort on decending order...\n");
 		double time_spent = 0.0; //Reset running time
 		clock_t start = clock();
-		int* sortedArray_loadf = MergeSort(problemArr, p, r);
+		int* sortedArray_loadf = MergeSort(backwardArr, p, r);
 		clock_t end = clock();
 		time_spent = ((float)(end - start)) / CLOCKS_PER_SEC;
 
@@ -157,11 +163,12 @@ void test_MergeSort_loadf() {
 
 		//Print sorted array
 		printf("Sorted array #2\n");
-		printArray(sortedArray_loadf, n);
+		printArray(sortedArray_loadf, n, limit);
 	}
 
 	if (solutionArr != NULL) {
 		//Calculate running time	
+		printf("Starting merge sort on accending order...\n");
 		double time_spent = 0.0; //Reset running time
 		clock_t start = clock();
 		int* sortedArray_loadf = MergeSort(solutionArr, p, r);
@@ -172,11 +179,11 @@ void test_MergeSort_loadf() {
 
 		//Print sorted array
 		printf("Sorted array #3\n");
-		printArray(sortedArray_loadf, n);
+		printArray(sortedArray_loadf, n, limit);
 	}
 	//Print correct solution from file
 	printf("The correct solution MergeSort\n");
-	printArray(solutionArr, n);
+	printArray(solutionArr, n, limit);
 }
 
 //Print array of in the case of a Swedish psersonal number
@@ -190,11 +197,11 @@ void printPersonalnumber(int* array, int n) {
 
 //Print array except first element
 //i.e. don't print how many elemets are in the array as a part of the array
-void printArray(int array[], int n) {
+void printArray(int array[], int n, int limit) {
 	if (n > 11) {
-		printf("Only printing the first 10 values of %d.\n", n-1);
+		printf("Only printing the first %d values of %d.\n", limit, n-1);
 	}
-	for (int i = 1; i < n && i <= 10; i++)
+	for (int i = 1; i < n && i <= limit; i++)
 	{
 		printf("%d ", array[i]);
 	}

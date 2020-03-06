@@ -15,17 +15,17 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="insertsort.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="load_file.h">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="insertsort.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="mergesort.h">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="test.h">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -10,6 +10,6 @@ void test_InsertionSort_loadf();
 
 void test_MergeSort_loadf();
 
-void printArray(int array[], int n);
+void printArray(int array[], int n, int limit);
 
 void printPersonalnumber(int* array, int n);

@@ -1,0 +1,24 @@
+##Exercisis 3
+
+Files implementing the algorithms and datastructurs are:
+
+main.c - only executing functions in other Files 
+test.c and test.h - contains the functions ran from main.c connected with test.h
+
+insertionsort.h and inserionsort_func.c - include funtions for insertion sort connected to test.c with headerfile.
+mergesort.h and mergesort_func.c - same as insertion sort for merge sort.
+
+The testing includes a clock timer for claculation execution time for each sorting algorithm with given  array.
+We also give a visual reprensentation for comparing the arrays.
+
+You can test my function by updateting the varibels at the top of the test.c file.
+I've included comments about what does what. You need to provide 3 files genereated with my varaion of the python script.
+So that there is a backwards file (solution array in backwards ordering).
+
+QUESTIONS, I answear based on 100 000 ints in a array
+• The input array is sorted in descending order: Merge sort
+• The input array is sorted in ascending order: Insertion sort
+• All elements in the array are the same: Insertion sort
+• There are both positive and negative numbers in the array: Merge sort
+
+
